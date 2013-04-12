@@ -119,7 +119,7 @@
 }
 
 - (BOOL)sendMail
-{	
+{
 	MFMailComposeViewController *mailController = [[[MFMailComposeViewController alloc] init] autorelease];
 	if (!mailController) {
 		// e.g. no mail account registered (will show alert)
@@ -135,9 +135,9 @@
 	BOOL isHTML = self.item.isMailHTML;
 	NSString *separator = (isHTML ? @"<br/><br/>" : @"\n\n");
     
-    if (self.item.URL != nil)
+    if (item.URL != nil)
     {
-        NSString *urlStr = [self.item.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *urlStr = [item.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
         if (isHTML)
             body = [body stringByAppendingFormat:@"%@%@", separator, urlStr];
@@ -145,9 +145,9 @@
             body = urlStr;
     }
     
-    if (self.item.file)
+    if (item.data)
     {
-        NSString *attachedStr = SHKLocalizedString(@"Attached: %@", self.item.title ? self.item.title : self.item.file.filename);
+        NSString *attachedStr = SHKLocalizedString(@"Attached: %@", item.title ? item.title : item.filename);
         
         if (isHTML)
             body = [body stringByAppendingFormat:@"%@%@", separator, attachedStr];
@@ -166,27 +166,27 @@
         body = [body stringByAppendingString:SHKLocalizedString(@"Sent from %@", SHKCONFIG(appName))];
     }
     
-	if (self.item.file)
-		[mailController addAttachmentData:self.item.file.data mimeType:self.item.file.mimeType fileName:self.item.file.filename];
+    
+	if (item.data)
+		[mailController addAttachmentData:item.data mimeType:item.mimeType fileName:item.filename];
     
 	NSArray *toRecipients = self.item.mailToRecipients;
     if (toRecipients)
 		[mailController setToRecipients:toRecipients];
     
-	if (self.item.image){
+	if (item.image){
         
         CGFloat jpgQuality = self.item.mailJPGQuality;
-        [mailController addAttachmentData:UIImageJPEGRepresentation(self.item.image, jpgQuality) mimeType:@"image/jpeg" fileName:@"Image.jpg"];
+        [mailController addAttachmentData:UIImageJPEGRepresentation(item.image, jpgQuality) mimeType:@"image/jpeg" fileName:@"Image.jpg"];
 	}
     
-	[mailController setSubject:self.item.title];
+	[mailController setSubject:item.title];
 	[mailController setMessageBody:body isHTML:isHTML];
     
 	[[SHK currentHelper] showViewController:mailController];
     
 	return YES;
 }
-
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
