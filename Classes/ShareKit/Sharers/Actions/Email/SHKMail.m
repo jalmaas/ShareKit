@@ -131,66 +131,62 @@
 	mailController.mailComposeDelegate = self;
 	mailController.navigationBar.tintColor = SHKCONFIG_WITH_ARGUMENT(barTintForView:,mailController);
 	
-	NSString *body = item.text;
+	NSString *body = self.item.text ? self.item.text : @"";
 	BOOL isHTML = self.item.isMailHTML;
 	NSString *separator = (isHTML ? @"<br/><br/>" : @"\n\n");
     
-	if (body == nil)
-	{
-		body = @"";
-		
-		if (item.URL != nil)
-		{
-			NSString *urlStr = [item.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-			
-			if (isHTML)
-				body = [body stringByAppendingFormat:@"%@%@", separator, urlStr];
-			else
-				body = urlStr;
-		}
-		
-		if (item.data)
-		{
-			NSString *attachedStr = SHKLocalizedString(@"Attached: %@", item.title ? item.title : item.filename);
-			
-			if (isHTML)
-				body = [body stringByAppendingFormat:@"%@%@", separator, attachedStr];
-			else
-				body = attachedStr;
-		}
-		
-		// fallback
-		if (body == nil)
-			body = @"";
-		
-		// sig
-		if (self.item.mailShareWithAppSignature)
-		{
-			body = [body stringByAppendingString:separator];
-			body = [body stringByAppendingString:SHKLocalizedString(@"Sent from %@", SHKCONFIG(appName))];
-		}
-	}
-	
-	if (item.data)		
-		[mailController addAttachmentData:item.data mimeType:item.mimeType fileName:item.filename];
-	
+    if (self.item.URL != nil)
+    {
+        NSString *urlStr = [self.item.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        if (isHTML)
+            body = [body stringByAppendingFormat:@"%@%@", separator, urlStr];
+        else
+            body = urlStr;
+    }
+    
+    if (self.item.file)
+    {
+        NSString *attachedStr = SHKLocalizedString(@"Attached: %@", self.item.title ? self.item.title : self.item.file.filename);
+        
+        if (isHTML)
+            body = [body stringByAppendingFormat:@"%@%@", separator, attachedStr];
+        else
+            body = attachedStr;
+    }
+    
+    // fallback
+    if (body == nil)
+        body = @"";
+    
+    // sig
+    if (self.item.mailShareWithAppSignature)
+    {
+        body = [body stringByAppendingString:separator];
+        body = [body stringByAppendingString:SHKLocalizedString(@"Sent from %@", SHKCONFIG(appName))];
+    }
+    
+	if (self.item.file)
+		[mailController addAttachmentData:self.item.file.data mimeType:self.item.file.mimeType fileName:self.item.file.filename];
+    
 	NSArray *toRecipients = self.item.mailToRecipients;
     if (toRecipients)
 		[mailController setToRecipients:toRecipients];
     
-	if (item.image){
+	if (self.item.image){
         
         CGFloat jpgQuality = self.item.mailJPGQuality;
-        [mailController addAttachmentData:UIImageJPEGRepresentation(item.image, jpgQuality) mimeType:@"image/jpeg" fileName:@"Image.jpg"];
+        [mailController addAttachmentData:UIImageJPEGRepresentation(self.item.image, jpgQuality) mimeType:@"image/jpeg" fileName:@"Image.jpg"];
 	}
-	
-	[mailController setSubject:item.title];
+    
+	[mailController setSubject:self.item.title];
 	[mailController setMessageBody:body isHTML:isHTML];
-			
+    
 	[[SHK currentHelper] showViewController:mailController];
-	
+    
 	return YES;
 }
+
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
