@@ -140,7 +140,7 @@
         NSString *urlStr = [item.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
         if (isHTML)
-            body = [body stringByAppendingFormat:@"%@%@", separator, urlStr];
+            body = [body stringByAppendingFormat:@"%@<a href=\"%@\">%@</a>", separator, urlStr,urlStr];
         else
             body = urlStr;
     }
