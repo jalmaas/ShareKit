@@ -13,3 +13,6 @@
 [submodule "Submodules/evernote-ios-sdk"]
 	path = Submodules/evernote-ios-sdk
 	url = https://github.com/evernote/evernote-sdk-ios.git
+[submodule "ios-oauthconsumer"]
+	path = ios-oauthconsumer
+	url = https://github.com/couchbaselabs/ios-oauthconsumer
