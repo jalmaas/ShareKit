@@ -24,12 +24,12 @@
 //  THE SOFTWARE.
 
 
-#import "OAHMAC_SHA1SignatureProvider.h"
+#import "OAHMAC_SHA1SignatureProvider_ShareKit.h"
 #import <CommonCrypto/CommonHMAC.h>
 
 #include "Base64Transcoder.h"
 
-@implementation OAHMAC_SHA1SignatureProvider
+@implementation OAHMAC_SHA1SignatureProvider_ShareKit
 
 - (NSString *)name 
 {

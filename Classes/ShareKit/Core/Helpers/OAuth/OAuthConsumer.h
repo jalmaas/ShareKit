@@ -31,7 +31,7 @@
 #import "NSMutableURLRequest+Parameters.h"
 #import "NSURL+Base.h"
 #import "OASignatureProviding.h"
-#import "OAHMAC_SHA1SignatureProvider.h"
+#import "OAHMAC_SHA1SignatureProvider_ShareKit.h"
 #import "OAPlaintextSignatureProvider.h"
 #import "OARequestParameter.h"
 #import "OAServiceTicket.h"

@@ -60,7 +60,7 @@
 		7A16F386161341570019645D /* OAAsynchronousDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5368F11DBE3B9004A1712 /* OAAsynchronousDataFetcher.m */; };
 		7A16F387161341570019645D /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5369111DBE3B9004A1712 /* OAConsumer.m */; };
 		7A16F388161341570019645D /* OADataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5369311DBE3B9004A1712 /* OADataFetcher.m */; };
-		7A16F389161341570019645D /* OAHMAC_SHA1SignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5369511DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider.m */; };
+		7A16F389161341570019645D /* OAHMAC_SHA1SignatureProvider_ShareKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5369511DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider_ShareKit.m */; };
 		7A16F38A161341570019645D /* OAMutableURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5369711DBE3B9004A1712 /* OAMutableURLRequest.m */; };
 		7A16F38B161341570019645D /* OAPlaintextSignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5369911DBE3B9004A1712 /* OAPlaintextSignatureProvider.m */; };
 		7A16F38C161341570019645D /* OARequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5369D11DBE3B9004A1712 /* OARequestParameter.m */; };
@@ -550,8 +550,8 @@
 		43A5369111DBE3B9004A1712 /* OAConsumer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAConsumer.m; sourceTree = "<group>"; };
 		43A5369211DBE3B9004A1712 /* OADataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OADataFetcher.h; sourceTree = "<group>"; };
 		43A5369311DBE3B9004A1712 /* OADataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OADataFetcher.m; sourceTree = "<group>"; };
-		43A5369411DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAHMAC_SHA1SignatureProvider.h; sourceTree = "<group>"; };
-		43A5369511DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAHMAC_SHA1SignatureProvider.m; sourceTree = "<group>"; };
+		43A5369411DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider_ShareKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAHMAC_SHA1SignatureProvider_ShareKit.h; sourceTree = "<group>"; };
+		43A5369511DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider_ShareKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAHMAC_SHA1SignatureProvider_ShareKit.m; sourceTree = "<group>"; };
 		43A5369611DBE3B9004A1712 /* OAMutableURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAMutableURLRequest.h; sourceTree = "<group>"; };
 		43A5369711DBE3B9004A1712 /* OAMutableURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAMutableURLRequest.m; sourceTree = "<group>"; };
 		43A5369811DBE3B9004A1712 /* OAPlaintextSignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPlaintextSignatureProvider.h; sourceTree = "<group>"; };
@@ -1466,8 +1466,8 @@
 				43A5369111DBE3B9004A1712 /* OAConsumer.m */,
 				43A5369211DBE3B9004A1712 /* OADataFetcher.h */,
 				43A5369311DBE3B9004A1712 /* OADataFetcher.m */,
-				43A5369411DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider.h */,
-				43A5369511DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider.m */,
+				43A5369411DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider_ShareKit.h */,
+				43A5369511DBE3B9004A1712 /* OAHMAC_SHA1SignatureProvider_ShareKit.m */,
 				43A5369611DBE3B9004A1712 /* OAMutableURLRequest.h */,
 				43A5369711DBE3B9004A1712 /* OAMutableURLRequest.m */,
 				43A5369811DBE3B9004A1712 /* OAPlaintextSignatureProvider.h */,
@@ -2964,7 +2964,7 @@
 				7A16F386161341570019645D /* OAAsynchronousDataFetcher.m in Sources */,
 				7A16F387161341570019645D /* OAConsumer.m in Sources */,
 				7A16F388161341570019645D /* OADataFetcher.m in Sources */,
-				7A16F389161341570019645D /* OAHMAC_SHA1SignatureProvider.m in Sources */,
+				7A16F389161341570019645D /* OAHMAC_SHA1SignatureProvider_ShareKit.m in Sources */,
 				7A16F38A161341570019645D /* OAMutableURLRequest.m in Sources */,
 				7A16F38B161341570019645D /* OAPlaintextSignatureProvider.m in Sources */,
 				7A16F38C161341570019645D /* OARequestParameter.m in Sources */,

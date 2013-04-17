@@ -114,7 +114,7 @@ NSString *SHKLinkedInVisibilityCodeKey = @"visibility.code";
 	    self.authorizeURL = [NSURL URLWithString:@"https://www.linkedin.com/uas/oauth/authorize"];
 	    self.accessURL = [NSURL URLWithString:@"https://api.linkedin.com/uas/oauth/accessToken"];
 		
-		self.signatureProvider = [[[OAHMAC_SHA1SignatureProvider alloc] init] autorelease];
+		self.signatureProvider = [[[OAHMAC_SHA1SignatureProvider_ShareKit alloc] init] autorelease];
 	}	
 	return self;
 }

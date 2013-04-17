@@ -28,5 +28,5 @@
 #import "OASignatureProviding.h"
 
 
-@interface OAHMAC_SHA1SignatureProvider : NSObject <OASignatureProviding>
+@interface OAHMAC_SHA1SignatureProvider_ShareKit : NSObject <OASignatureProviding>
 @end
