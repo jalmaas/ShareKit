@@ -25,7 +25,7 @@
 
 
 #import "OAMutableURLRequest.h"
-#import "DefaultSHKConfigurator.h"
+#import "Debug.h"
 
 
 @interface OAMutableURLRequest (Private)
@@ -64,7 +64,7 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
 		
 		// default to HMAC-SHA1
 		if (aProvider == nil)
-			signatureProvider = [[OAHMAC_SHA1SignatureProvider_ShareKit alloc] init];
+			signatureProvider = [[OAHMAC_SHA1SignatureProvider alloc] init];
 		else
 			signatureProvider = [aProvider retain];
 		
@@ -105,7 +105,7 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
 		
 		// default to HMAC-SHA1
 		if (aProvider == nil)
-			signatureProvider = [[OAHMAC_SHA1SignatureProvider_ShareKit alloc] init];
+			signatureProvider = [[OAHMAC_SHA1SignatureProvider alloc] init];
 		else
 			signatureProvider = [aProvider retain];
 		
